@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Template Mo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Farmer's Portal -Crops</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'CSS/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/templatemo-edu-meeting.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/lightbox.css' %}">
+<style>
+    h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 36px;
+      color: #fff;
+      z-index: 2;
+      }
+      .f{
+        align-items: center;
+       position: relative;
+       left: 35%;
+      }
+
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      width: 80%;
+    
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 20px 0 #333;
+      justify-content: center;
+      align-items: center;
+      }
+      .banner {
+      position: relative;
+      min-height: 100px;
+      background-image: url("{% static '/uploads/media/default/0001/02/328c356e9bba5add698e405d0059aa4207d8f1f6.jpeg' %}");      
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.4); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, textarea, select {
+      align-items: center;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color: #333;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #333;
+      color: #333;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 0;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type="time"]::-webkit-inner-spin-button {
+      margin: 2px 22px 0 0;
+      }
+      input[type=radio], input.other {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 10px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      #radio_5:checked ~ input.other {
+      display: block;
+      }
+      input[type=radio]:checked + label.radio:before {
+      border: 2px solid #444;
+      background: #444;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 5px;
+      width: 7px;
+      height: 4px;
+      border: 3px solid #fff;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #444;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #666;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .city-item input {
+      width: calc(50% - 20px);
+      }
+      .city-item select {
+      width: calc(50% - 8px);
+      }
+      }
+    </style>
+  </head>
+
+<body>
+
+ <div class="sub-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-sm-8">
+        <div class="left-content">
+          <div id="google_translate_element"></div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-4">
+        <div class="right-icons">
+          <ul>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<div id="google_translate_element"></div>-->
+
+<!-- ** Header Area Start ** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+              <nav class="main-nav">
+                <!-- ***** Logo Start ***** -->
+                <a href="" class="logo">
+                    Farmer's Portal
+                </a>
+                <!-- ***** Logo End ***** -->
+                <!-- ***** Menu Start ***** -->
+                <ul class="nav">
+                    <li ><a href="{% url 'Web_APP:home' %}" class="active">Home</a></li>
+                    <li class="has-sub">
+                        <a href="javascript:void(0)">Information</a>
+                        <ul class="sub-menu">
+                            <li><a href="{% url 'Web_APP:crops' %}">Crops</a></li>                                  
+                            <li><a href="{% url 'Web_APP:disease' %}">Diseases</a></li>
+                            <li><a href="{% url 'Web_APP:crops' %}">Seeds</a></li>
+                        </ul>
+                    </li>
+                    <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+                    <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
+                </ul>        
+                <a class='menu-trigger'>
+                    <span>Menu</span>
+                </a>
+                <!-- ***** Menu End ***** -->
+            </nav>
+            </div>
+        </div>
+    </div>
+</header>
+  <!-- ** Header Area End ** -->
+
+  <section class="heading-page header-text" id="top">
+    <img src="{% static 'images1/cropsbg.jpg' %}">    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>Here is some information about</h6>
+          <h2>Crops</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meetings-page" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="testbox">
+
+
+        <form action= "{% url 'Web_APP:crop_result' %} " >
+          {% csrf_token %}
+          <div class="banner">
+            <h1>Crop Suggestion</h1>
+          </div>
+
+          <div class="item">
+            <p>Nitrogen</p>
+            <div class="name-item">
+              <input  required name="NITROGEN" placeholder="Input in numeric values" />
+            </div>
+          </div>
+  
+          <div class="item">
+            <p>PHOSPHORUS</p>
+            <div class="name-item">
+              <input required name="PHOSPHORUS" placeholder="Input in numeric values" />
+            </div>
+          </div>
+  
+          <div class="item">
+            <p>POTASSIUM</p>
+            <div class="name-item">
+              <input required name="POTASSIUM" placeholder="Input in numeric values" />
+            </div>
+          </div>
+  
+          <div class="item">
+            <p>TEMPERATURE</p>
+            <div class="name-item">
+              <input reuired name="TEMPERATURE" placeholder="Input in numeric values" />
+            </div>
+          </div>
+  
+          <div class="item">
+            <p>HUMIDITY</p>
+            <div class="name-item">
+              <input required name="HUMIDITY" placeholder="Input in numeric values" />
+            </div>
+          </div>
+  
+          <div class="item">
+            <p>PH</p>
+            <div class="name-item">
+              <input required name="PH" placeholder="Input in numeric values" />
+            </div>
+          </div>
+
+          <div class="item">
+            <p>RAINFALL</p>
+            <div class="name-item">
+              <input required name="RAINFALL" placeholder="Input in numeric values" />
+            </div>
+          </div>
+         
+             
+          <div class="btn-block">
+            <input type="submit" value="submit"></input>
+          </div>
+          
+
+        </form>  
+      </div>
+        
+      </div>
+    </div>
+    <div class="footer">
+     <p>Copyright © 2022 Farm Aid.Co, Ltd. All Rights Reserved. 
+         <br>
+         Designed By: CodeMates
+       </p>
+   </div>
+  </section>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <script src="{% static 'js/isotope.min.js' %}"></script>
+  <script src="{% static 'js/owl-carousel.js' %}"></script>
+  <script src="{% static 'js/lightbox.js' %}"></script>
+  <script src="{% static 'js/tabs.js' %}"></script>
+  <script src="{% static 'js/video.js' %}"></script>
+  <script src="{% static 'js/slick-slider.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+  
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+    </script>
+     <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+      </script>
+      
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  </body>
+
+</html>
